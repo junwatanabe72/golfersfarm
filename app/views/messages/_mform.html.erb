@@ -1,0 +1,7 @@
+  <%= form_with(model: message, local: true) do |f| %>
+    <div class="form-group">
+      <%= f.text_area :content, class: 'form-control' %>
+       <%= f.text_area :receiver_id, class: 'form-control' %>
+    </div>
+      <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+  <% end %>

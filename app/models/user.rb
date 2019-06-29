@@ -12,6 +12,13 @@ class User < ApplicationRecord
     #validates :hcourse , length: {maximum: 50}
     #validates :bplace , length: {maximum: 50}
     
+      has_many :messages
+    #has_many :sent_messages, through: :messages, source: :receiver_id
+    
+    #has_many :reverses_of_message , class_name: :Message , foreign_key: :receiver_id
+    #has_many :received_messages, through: :reverses_of_message, source: :user_id
+    
+    
     has_secure_password
     mount_uploader :image, ImageUploader
 end
