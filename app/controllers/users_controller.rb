@@ -9,8 +9,10 @@ class UsersController < ApplicationController
 
   def show
       @user = User.find(params[:id])
-      @messages = @user.messages.order(id: :desc).page(params[:page])
-      @message = @user.messages.build
+      @messages = current_user.messages.order(id: :desc).page(params[:page])
+      @message = current_user.messages.build
+      #@rmessages = @user.reverses_of_message.order(id: :desc).page(params[:page])
+      #@rmessage = @user.reverses_of_message.build
       counts(@user)
   end
 

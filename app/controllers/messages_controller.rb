@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
   
   def create
     @message = current_user.messages.build(message_params)
+    #@rmessage = current_user.reverses_of_message.build(message_params)
     if @message.save
       flash[:success] = 'メッセージを投稿しました。'
       redirect_to root_url
