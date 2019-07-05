@@ -1,20 +1,29 @@
 class UsersController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:show, :index]
+  before_action :require_user_logged_in, only: [:show, :index, :status]
   
   
   def index
-    @users = User.order(id: :desc).page(params[:page]).per(25)
+    @users = User.order(id: :desc).page(params[:page]).per(50)
+    @q = @users.ransack(params[:q])
+    @users = @q.result(distinct: true)
+
   end
 
   def show
       @user = User.find(params[:id])
-      @messages = current_user.messages.order(id: :desc).page(params[:page])
-      @message = current_user.messages.build
-      #@rmessages = @user.reverses_of_message.order(id: :desc).page(params[:page])
-      #@rmessage = @user.reverses_of_message.build
+      @messages = current_user.messages.order(id: :desc).page(params[:page]).per(5)
+      @message = current_user.messages.build 
+      @messagees = current_user.messages.where(receiver_id: params[:id]).page(params[:page]).per(5)
+      @rmessages = current_user.reverses_of_message.order(id: :desc).page(params[:page]).per(5)
+      @rmessage = current_user.reverses_of_message.build
       counts(@user)
   end
+
+  def status
+      @user = User.find(params[:id])
+  end
+
 
   def new
      @user = User.new

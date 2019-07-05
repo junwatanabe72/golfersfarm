@@ -15,8 +15,8 @@ class User < ApplicationRecord
       has_many :messages
     #has_many :sent_messages, through: :messages, source: :receiver_id
     
-    #has_many :reverses_of_message , class_name: :Message , foreign_key: :receiver_id
-    #has_many :received_messages, through: :reverses_of_message, source: :user_id
+    has_many :reverses_of_message , class_name: :Message , foreign_key: :receiver_id
+    #has_many :received_messages, through: :reverses_of_message, source: :user
     
     
     has_secure_password

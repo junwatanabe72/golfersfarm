@@ -1,20 +1,29 @@
-<% if users.any? %>
-  <ul class="list-unstyled">
-    <% users.each do |user| %>
-      <li class="media">
-        <div class="mr-2 rounded" id="user_image">
-         <%= image_tag user.image.url if user.image.present? %>
-        </div>
-        <div class="media-body">
-          <div>
-            <%= user.name %>
-          </div>
-          <div>
-            <p><%= link_to 'View profile', user_path(user) %></p>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-  <%= paginate users %>
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_or_address, "Keyword" %>
+  <%= f.search_field :name_or_address_cont %>
+  
+  <%= f.submit "検索" %>
 <% end %>
+<%= sort_link(@q,:name, "Name") %>
+
+<% if users.any? %>
+  <div class="container">
+    <div class="row">
+        <% users.each do |user| %>
+         <div class="col-xs-6 col-sm-4 col-md-2">
+          <div class="thumbnail" id="user_image">
+           <% if user.image? %>
+            <%= image_tag user.image.thumb_in.url if user.image.present? %>
+           <% else %>
+            <%= image_tag "/assets/default.jpg" %>
+           <% end %>
+            <%= user.name %>
+            <p><%= link_to 'profile', user_path(user) %></p>
+          </div>
+         </div>
+        <% end %>
+      <%= paginate users %>
+    </div>
+  </div>
+<% end %>
+
