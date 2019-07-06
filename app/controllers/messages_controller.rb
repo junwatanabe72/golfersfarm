@@ -28,12 +28,13 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    if
+    
+    if 
       @message.destroy
         flash[:success] = 'メッセージを削除しました。'
           redirect_back(fallback_location: root_path)
     else
-    @message.destroy
+      @rmessage.destroy
         flash[:success] = 'メッセージを削除しました。'
           redirect_back(fallback_location: root_path)
     end

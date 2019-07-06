@@ -36,6 +36,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_and_pad => [300, 300]
   end
 
+  def  size_range
+      1..5.megabytes
+  end
+
 
   # jpg,jpeg,gif,pngしか受け付けない
   def extension_white_list

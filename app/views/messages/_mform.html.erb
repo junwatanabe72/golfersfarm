@@ -1,5 +1,6 @@
   
   <%= form_with(model: message, local: true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
     <div class="form-group">
       <%= f.label :content, 'メッセージ' %>
       <%= f.text_area :content,class: 'form-control' %>
