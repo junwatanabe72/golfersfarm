@@ -15,7 +15,7 @@
            <% if user.image? %>
             <%= image_tag user.image.thumb_in.url if user.image.present? %>
            <% else %>
-            <%= image_tag "/assets/default.jpg" %>
+            <%= image_tag "default.jpg" %>
            <% end %>
             <%= user.name %>
             <p><%= link_to 'profile', user_path(user) %></p>
