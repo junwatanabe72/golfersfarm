@@ -6,9 +6,10 @@ class MessagesController < ApplicationController
   def create
     
     if  @message = current_user.messages.build(message_params)
+    
       if @message.save
         flash[:success] = 'メッセージを投稿しました。'
-        redirect_to root_url
+        redirect_to user_url(@message.receiver_id)
       else
         @messages = current_user.messages.order(id: :desc).page(params[:page])
         flash.now[:danger] = 'メッセージの投稿に失敗しました。'
