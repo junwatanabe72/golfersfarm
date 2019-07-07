@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:show,  :index, :status,  :edit,  :create,  :update,  :destroy]
+  before_action :require_user_logged_in, only: [:show,  :index, :status,  :edit,  :update,  :destroy]
   before_action :ensure_correct_user, only: [ :edit,  :update]
   
   
