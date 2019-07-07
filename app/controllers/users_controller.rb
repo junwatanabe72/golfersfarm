@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:show, :index, :status]
+  before_action :require_user_logged_in, only: [:show,  :index, :status,  :edit,  :create,  :update,  :destroy]
+  before_action :ensure_correct_user, only: [ :edit,  :update]
   
   
   def index
@@ -71,4 +72,10 @@ class UsersController < ApplicationController
   end
   
   
+  def ensure_correct_user
+    if current_user.id != params[:id].to_i
+      redirect_to  root_url
+    end
+  end
+
 end
