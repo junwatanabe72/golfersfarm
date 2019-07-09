@@ -1,10 +1,13 @@
-<footer class="mt-3">
-    
-    <%= link_to 'inquiry', new_contact_path %>
-    <%= link_to 'about', about_path %>
+<footer class="footer mt-auto py-3">
+  <div class="container">
+    <div class="row">
+     <%= link_to 'お問合せ', new_contact_path %>
+     <%= link_to 'このサイトについて', about_path, {class: "ml-2"} %>
+    </div>
+  </div>
   <!-- Copyright -->
-   <!--<div class="footer-copyright text-center text-black-50 py-3">© 2019 Copyright:
-    <!--<a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+   <div class="footer-copyright text-center text-black-50 py-3">© 2019 Copyright:
+   <a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
   </div>
   <!-- Copyright -->
 </footer>

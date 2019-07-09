@@ -18,7 +18,7 @@
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"><%= link_to "Logout", logout_path, method: :delete %></li>
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to "Delete", user_path(current_user) ,method: :delete, data: { confirm: "You sure?" } %></li>
+              <li class="dropdown-item"><%= link_to "cancellation", user_path(current_user) ,method: :delete, data: { confirm: "You sure?" } %></li>
             </ul>
           </li>
         <% else %> 

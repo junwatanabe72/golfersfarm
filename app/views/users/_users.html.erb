@@ -11,14 +11,20 @@
     <div class="row">
         <% users.each do |user| %>
          <div class="col-xs-6 col-sm-4 col-md-2">
-          <div class="thumbnail" id="user_image">
+          <div class="card mt-1 mb-2" id="user_image">
            <% if user.image? %>
             <%= image_tag user.image.thumb_in.url  if user.image.present? %>
            <% else %>
                 <%= image_tag "default.jpg" , size:"155" %>
            <% end %>
-            <%= user.name %>
+           <div class="card-body">
+            <div class="card-title">
+            <%= "name:#{user.name}" %>
+            </div>
+            <div class="card-text">
             <p><%= link_to 'profile', user_path(user) %></p>
+           </div>
+          </div>
           </div>
          </div>
         <% end %>
