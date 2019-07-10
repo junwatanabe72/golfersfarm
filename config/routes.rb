@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
   get 'about', to: "toppages#about"
+  get 'privacy', to: "toppages#privacy"
+  
   
   get 'signup', to: 'users#new'
   
