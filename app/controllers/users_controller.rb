@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:show,  :index, :status,  :edit,  :update,  :destroy]
+  before_action :require_user_logged_in, only: [:show, :profile,  :edit,  :update,  :destroy]
   before_action :ensure_correct_user, only: [ :edit,  :update]
   
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(50)
+    @open_users = User.where(status: 0).order(id: :desc).page(params[:page]).per(50)
     @q = @users.ransack(params[:q])
     @users = @q.result(distinct: true)
 
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
       counts(@user)
   end
 
-  def status
+  def profile
       @user = User.find(params[:id])
   end
 

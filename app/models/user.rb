@@ -1,5 +1,8 @@
 class User < ApplicationRecord
     before_save { self.email.downcase! }
+
+    enum status:{open: 0 , closed: 1}
+
     
     validates :name, presence: true, length: { maximum: 50 }
     validates :email, presence: true, length: { maximum: 255 },
@@ -14,11 +17,10 @@ class User < ApplicationRecord
     
     has_many :messages ,dependent: :destroy
     #has_many :sent_messages, through: :messages, source: :receiver_id
-    
     has_many :reverses_of_message , class_name: :Message , foreign_key: :receiver_id ,dependent: :destroy
     #has_many :received_messages, through: :reverses_of_message, source: :user
     
-    
+
     has_secure_password
     mount_uploader :image, ImageUploader
 end
