@@ -19,6 +19,6 @@
       <li class="nav-item"><a href="<%= swing_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(swing_user_path(@user)) %>">Golfers Swing</a></li>
       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Messages <span class="badge badge-secondary"><%= @count_messages %></span></a></li>
     </ul>
-   <%= render 'users/para', user: @user %>
+   <%= render 'users/video', user: @user %>
   </div>
 </div>

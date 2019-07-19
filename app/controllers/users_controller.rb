@@ -26,6 +26,10 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
   end
 
+ def swing
+      @user = User.find(params[:id])
+  end
+
 
   def new
      @user = User.new
@@ -69,7 +73,7 @@ class UsersController < ApplicationController
  private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :hcourse ,:distance, :address, :bplace, :bscore)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :hcourse ,:distance, :address, :bplace, :bscore, :status)
   end
   
   

@@ -8,60 +8,63 @@
 
 <% if logged_in? %>
 
-<% if users.any? %>
-    <div class="container">
-      <div class="row">
-        <% users.each do |user| %>
-           <div class="col-xs-6 col-sm-4 col-md-2">
-            <div class="card mt-1 mb-2" id="user_image">
-             <% if user.image? %>
-              <%= image_tag user.image.thumb_in.url  if user.image.present? %>
-             <% else %>
-                  <%= image_tag "default.jpg" , size:"155" %>
-             <% end %>
-             <div class="card-body">
-              <div class="card-title">
-              <%= "name:#{user.name}" %>
+  <% if users.any? %>
+      <div class="container">
+        <div class="row">
+          <% users.each do |user| %>
+             <div class="col-xs-6 col-sm-5 col-md-3">
+              <div class="card mt-1 mb-2" id="user_image">
+<div class="a" >
+               <% if user.image? %>
+                <%= image_tag user.image.url  if user.image.present? %>
+               <% else %>
+                <%= image_tag "default.jpg"  %>
+               <% end %>
+                <div class="card-body">
+                  <div class="card-title">
+                    <%= user.name %>
+                  </div>
+                  <div class="card-text">
+                    <p><%= link_to 'profile', user_path(user) %></p>
+                  </div>
+                </div>
+              
               </div>
-              <div class="card-text">
-              <p><%= link_to 'profile', user_path(user) %></p>
+</div>
              </div>
-            </div>
-            </div>
-           </div>
-        <% end %>
-      <%= paginate users %>
+          <% end %>
+        <%= paginate users %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
 <% else %>
 
-<% if o_users.any? %>
-    <div class="container">
-      <div class="row">
-        <% o_users.each do |user| %>
-           <div class="col-xs-6 col-sm-4 col-md-2">
-            <div class="card mt-1 mb-2" id="user_image">
-             <% if user.image? %>
-              <%= image_tag user.image.thumb_in.url  if user.image.present? %>
-             <% else %>
+  <% if o_users.any? %>
+      <div class="container">
+        <div class="row">
+          <% o_users.each do |user| %>
+             <div class="col-xs-6 col-sm-4 col-md-2">
+              <div class="card mt-1 mb-2" id="user_image">
+               <% if user.image? %>
+                <%= image_tag user.image.url  if user.image.present? %>
+               <% else %>
                   <%= image_tag "default.jpg" , size:"155" %>
-             <% end %>
-             <div class="card-body">
-              <div class="card-title">
-              <%= "name:#{user.name}" %>
+               <% end %>
+               <div class="card-body">
+                <div class="card-title">
+                <%= "name:#{user.name}" %>
+                </div>
+                <div class="card-text">
+                <p><%= link_to 'profile', user_path(user) %></p>
+               </div>
               </div>
-              <div class="card-text">
-              <p><%= link_to 'profile', user_path(user) %></p>
+              </div>
              </div>
-            </div>
-            </div>
-           </div>
-        <% end %>
-      <%= paginate o_users %>
+          <% end %>
+        <%= paginate o_users %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
 <% end %>
