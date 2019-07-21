@@ -8,9 +8,11 @@
 
 .thumbnail {
    float: left;
-  #margin: 25px;
-  #width: 200px;
-  #height: 200px;
+   margin: 10px;
+   width: auto;
+   height: auto center;
+   border:1px;
+   object-fit: cover; 
 }
 
 .img-responsive{
@@ -34,9 +36,14 @@
 }
 
 .a{
-  width:100%;
+  width:50px;
   height:20%;
-  object-fit: cover; 
+
 }
+
+.card{
+  border: none;
+}
+
 
 

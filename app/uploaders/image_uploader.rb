@@ -15,16 +15,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   #end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-   # def default_url(*args)
+    #def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-    # "default.jpg" 
+     #"default.jpg" 
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  #  end
+   # end
 
 
 # 画像の上限を700pxにする
- # process :resize_to_limit => [700, 700]
+  process :resize_to_limit => [500, 500]
 
   # 保存形式をJPGにする
   process :convert => 'jpg'
@@ -35,7 +35,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   
   version :thumb_in do
-    process :resize_and_pad => [300, 300]
+    process :resize_and_pad => [300, 375]
   end
 
   def  size_range

@@ -1,10 +1,11 @@
-<%= search_form_for @q do |f| %>
-  <%= f.label :name_or_address, "Keyword" %>
-  <%= f.search_field :name_or_address_cont %>
-  
-  <%= f.submit "検索" %>
-<% end %>
-<%= sort_link(@q,:name, "Name") %>
+<div class="mb-4">
+  <%= search_form_for @q do |f| %>
+    <%= f.label :name_or_address, "Keyword" %>
+      <%= f.search_field :name_or_address_cont %>
+    <%= f.submit "検索" %>
+  <% end %>
+  <%= sort_link(@q,:name, "Name") %>
+</div>
 
 <% if logged_in? %>
 
@@ -12,30 +13,24 @@
       <div class="container">
         <div class="row">
           <% users.each do |user| %>
-             <div class="col-xs-6 col-sm-5 col-md-3">
-              <div class="card mt-1 mb-2" id="user_image">
-<div class="a" >
+            <div class="col-xs-6 col-sm-4 col-md-2">
+              <div class="card mt-1 mb-1 border-bottom border-top" id="user_image">
                <% if user.image? %>
-                <%= image_tag user.image.url  if user.image.present? %>
+                <%= image_tag user.image.thumb_in.url  if user.image.present? %>
                <% else %>
                 <%= image_tag "default.jpg"  %>
                <% end %>
-                <div class="card-body">
-                  <div class="card-title">
-                    <%= user.name %>
-                  </div>
-                  <div class="card-text">
-                    <p><%= link_to 'profile', user_path(user) %></p>
+                <div class="card-body m-0 p-0 border-top">
+                  <div class="card-title text-center">
+                    <%= link_to "#{user.name}", user_path(user) %>
                   </div>
                 </div>
-              
               </div>
-</div>
-             </div>
+            </div>
           <% end %>
-        <%= paginate users %>
+         <%= paginate users %>
+        </div>
       </div>
-    </div>
   <% end %>
 
 <% else %>
@@ -44,27 +39,25 @@
       <div class="container">
         <div class="row">
           <% o_users.each do |user| %>
-             <div class="col-xs-6 col-sm-4 col-md-2">
-              <div class="card mt-1 mb-2" id="user_image">
+            <div class="col-xs-6 col-sm-4 col-md-2">
+              <div class="card mt-1 mb-1 border-bottom border-top" id="user_image">
                <% if user.image? %>
-                <%= image_tag user.image.url  if user.image.present? %>
+                <%= image_tag user.image.thumb_in.url  if user.image.present? %>
                <% else %>
-                  <%= image_tag "default.jpg" , size:"155" %>
+                <%= image_tag "default.jpg"  %>
                <% end %>
-               <div class="card-body">
-                <div class="card-title">
-                <%= "name:#{user.name}" %>
+                <div class="card-body m-0 p-0 border-top">
+                  <div class="card-title text-center">
+                    <%= link_to "#{user.name}", user_path(user) %>
+                  </div>
                 </div>
-                <div class="card-text">
-                <p><%= link_to 'profile', user_path(user) %></p>
-               </div>
               </div>
-              </div>
-             </div>
+                  
+            </div>
           <% end %>
-        <%= paginate o_users %>
+         <%= paginate o_users %>
+        </div>
       </div>
-    </div>
   <% end %>
 
 <% end %>

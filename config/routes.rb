@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
-      get :profile
+      get :message
       get :swing
     end
   end

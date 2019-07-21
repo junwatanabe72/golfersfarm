@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 2019_07_05_021457) do
     t.string "address"
     t.string "hcourse"
     t.string "bplace"
+    t.string "video"
+    t.string "channel"
+    t.string "remember_digest"
+    t.integer "sex", limit: 1, default: 0, null: false
     t.integer "status", limit: 1, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

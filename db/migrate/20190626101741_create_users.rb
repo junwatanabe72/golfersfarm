@@ -9,7 +9,11 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :distance
       t.string :address
       t.string :hcourse
-      t.string :bplace 
+      t.string :bplace
+      t.string :video
+      t.string :channel
+      t.string :remember_digest
+      t.integer :sex,default: 0, null: false, limit: 1
       t.integer :status,default: 0, null: false, limit: 1
       t.timestamps
     end

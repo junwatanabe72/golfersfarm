@@ -15,9 +15,13 @@
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="<%= profile_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(profile_user_path(@user)) %>">Golfers Status</a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Golfers Status</a></li>
       <li class="nav-item"><a href="<%= swing_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(swing_user_path(@user)) %>">Golfers Swing</a></li>
-      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Messages <span class="badge badge-secondary"><%= @count_messages %></span></a></li>
+      <% if @user.status == 0 || current_user %>
+      <li class="nav-item"><a href="<%= message_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(message_user_path(@user)) %>">Messages <span class="badge badge-secondary"><%= @count_messages %></span></a></li>
+      <% else %>
+      <li class="nav-item"><a href="#" class="nav-link">Messages</a></li>
+      <% end %>    
     </ul>
    <%= render 'users/video', user: @user %>
   </div>

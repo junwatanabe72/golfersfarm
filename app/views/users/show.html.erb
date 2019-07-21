@@ -1,10 +1,10 @@
 <div class="row">
   <aside class="col-sm-4">
     <div class="card">
-      <div class="card-header">
+      <div class="card-header border">
         <h3 class="card-title"><%= @user.name %></h3>
       </div>
-      <div class="card-body" id="user_image">
+      <div class="card-body border" id="user_image">
         <% if @user.image? %>
           <%= image_tag @user.image.url if @user.image.present? %>
         <% else %>
@@ -15,10 +15,14 @@
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="<%= profile_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(profile_user_path(@user)) %>">Golfers Status</a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Golfers Status</a></li>
       <li class="nav-item"><a href="<%= swing_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(swing_user_path(@user)) %>">Golfers Swing</a></li>
-      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Messages <span class="badge badge-secondary"><%= @count_messages %></span></a></li>
+      <% if @user.status == 0 || current_user %>
+      <li class="nav-item"><a href="<%= message_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(message_user_path(@user)) %>">Messages <span class="badge badge-secondary"><%= @count_messages %></span></a></li>
+      <% else %>
+      <li class="nav-item"><a href="#" class="nav-link">Messages</a></li>
+      <% end %>    
     </ul>
-     <%= render 'messages/messages', rmessages: @rmessages , messages: @messages,messes: @messagees, user: @user %>
+     <%= render 'users/para', user: @user %>
   </div>
 </div>
