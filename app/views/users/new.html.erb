@@ -18,8 +18,8 @@
       </div>
 
        <div class="form-group">
-        <%= f.label :sex, "sex" %>
-        <%= f.select :sex ,User.sexes.keys.to_a, class: 'form-control' %>
+        <%#= f.label :sex, "sex" %>
+        <%#= f.select :sex ,User.sexes.keys.to_a, class: 'form-control' %>
       </div>
 
 
@@ -50,8 +50,8 @@
       </div>
       
       <div class="form-group">
-        <%= f.label :image, 'Image' %>
-        <%= f.file_field :image, class: 'form-control' %>
+        <%#= f.label :image, 'Image' %>
+        <%#= f.file_field :image, class: 'form-control' %>
       </div>
 
       <div class="form-group">
@@ -65,9 +65,9 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :status, 'open or　closed※' %>
-        <%= f.select :status ,User.statuses.keys.to_a, class: 'form-control' %>
-        <small>※ログインユーザーにのみプロフィールを公開します。</small>
+        <%#= f.label :status, 'open or　closed※' %>
+        <%= f.hidden_field :status ,value: "closed", class: 'form-control' %>
+       <!--<small>※ログインユーザーにのみプロフィールを公開します。</small>-->
       </div>
       
       
