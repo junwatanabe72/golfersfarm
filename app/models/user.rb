@@ -1,10 +1,16 @@
 class User < ApplicationRecord
+  
     before_save { self.email.downcase! }
+    before_create :create_activation_digest
 
     enum status:{open: 0 , closed: 1}
     enum sex:{man: 0 , woman: 1}
     
-    attr_accessor :remember_token
+    #要素
+    
+    attr_accessor :remember_token,  :activation_token
+   
+   #バリテーション
     
     validates :name, presence: true, length: { maximum: 50 }
     validates :email, presence: true, length: { maximum: 255 },
@@ -25,6 +31,8 @@ class User < ApplicationRecord
 
     has_secure_password
     mount_uploader :image, ImageUploader
+    
+    #メソッド
     
     
   def User.digest(string)
@@ -48,11 +56,22 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
     
-  def authenticated?(remember_token)
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+ #永続的セッション＋メール認証
+  
+  def create_activation_digest
+      self.activation_token  = User.new_token
+      self.activation_digest = User.digest(activation_token)
   end
   
   
   
-    
+  
+  def authenticated?(attribute, token)
+    digest = self.send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
+  end
+  
+  
+  
 end

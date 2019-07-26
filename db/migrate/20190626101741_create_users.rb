@@ -12,6 +12,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :bplace
       t.string :video
       t.string :channel
+      t.string :gear
       t.string :remember_digest
       t.integer :sex,default: 0, null: false, limit: 1
       t.integer :status,default: 0, null: false, limit: 1

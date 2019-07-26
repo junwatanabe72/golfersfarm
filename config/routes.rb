@@ -21,4 +21,8 @@ Rails.application.routes.draw do
  
   resources :messages, only:[:create , :destroy]
   resources :contacts, only: [:new, :create]
+  
+  resources :account_activations, only: [:edit]
+  
+  
 end

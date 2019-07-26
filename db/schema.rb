@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_05_021457) do
+ActiveRecord::Schema.define(version: 2019_07_26_112908) do
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email"
@@ -42,11 +42,15 @@ ActiveRecord::Schema.define(version: 2019_07_05_021457) do
     t.string "bplace"
     t.string "video"
     t.string "channel"
+    t.string "gear"
     t.string "remember_digest"
     t.integer "sex", limit: 1, default: 0, null: false
     t.integer "status", limit: 1, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
   end
 
   add_foreign_key "messages", "users"
