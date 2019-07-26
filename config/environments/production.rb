@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-    host = 'golfersfarm.com'
+    host = 'www.golfersfarm.com'
     config.action_mailer.default_url_options = { host: host }
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.perform_deliveries = true
