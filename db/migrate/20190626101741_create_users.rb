@@ -10,9 +10,16 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :hcourse
       t.string :bplace
+      
       t.string :video
       t.string :channel
+      
       t.string :gear
+      
+      t.string :hobby
+      t.string :job
+      t.string :school
+      
       t.string :remember_digest
       t.integer :sex,default: 0, null: false, limit: 1
       t.integer :status,default: 0, null: false, limit: 1

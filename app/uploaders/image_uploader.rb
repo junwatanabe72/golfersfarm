@@ -22,7 +22,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
    # end
 
-
 # 画像の上限を700pxにする
   process :resize_to_limit => [500, 500]
 
@@ -30,13 +29,18 @@ class ImageUploader < CarrierWave::Uploader::Base
   process :convert => 'jpg'
 
   # サムネイルを生成する設定
-   version :thumb do
+  version :thumb do
      process :resize_to_fit => [300, 300]
   end
   
   version :thumb_in do
     process :resize_and_pad => [300, 375]
   end
+
+  version :thumb_gear do
+    process :resize_to_fit => [400, 350]
+  end
+
 
   def  size_range
       1..5.megabytes

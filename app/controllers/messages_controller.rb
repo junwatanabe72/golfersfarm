@@ -9,11 +9,11 @@ class MessagesController < ApplicationController
     
       if @message.save
         flash[:success] = 'メッセージを投稿しました。'
-        redirect_to user_url(@message.receiver_id)
+        redirect_to message_user_url(@message.receiver_id)
       else
         @messages = current_user.messages.order(id: :desc).page(params[:page])
-        flash.now[:danger] = 'メッセージの投稿に失敗しました。'
-        render 'toppages/index'
+        flash.now[:danger] = 'メッセージを投稿できませんでした。'
+        render "toppages/index"
       end
     else
       @rmessage = current_user.reverses_of_message.build(message_params)
@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
         redirect_to root_url
       else
         @rmessages = current_user.reverses_of_message.order(id: :desc).page(params[:page])
-        flash.now[:danger] = 'メッセージの投稿に失敗しました。'
+        flash.now[:danger] = 'メッセージの投稿できませんでした。'
         render 'toppages/index'
       end
     end

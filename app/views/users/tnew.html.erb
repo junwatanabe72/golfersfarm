@@ -1,0 +1,70 @@
+ <table class="table table-condensed table-striped text-center m-0">
+      <tbody>
+         <tr>
+          <th>登録フォーム</th>
+          
+        </tr>
+<%= form_with(model: @tournament, local: true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+       <tr>
+          <td>
+            <div class="form-group">
+              <%= f.text_field :year,class: 'form-control' %>
+              <%= f.label :year, 'year/年(数値4字迄)' %>
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <%= f.text_field :content,class: 'form-control' %>
+              <%= f.label :content, "tournament/競技（50字迄）" %>
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <%= f.text_field :rank,class: 'form-control' %>
+              <%= f.label :rank, 'rank/順位（10字迄）' %>
+            </div>
+          </td>
+          <td>
+           <%= f.submit '追加', class: 'btn btn-primary' %>  
+          </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="form-group">
+      <%= f.label :url, '競技結果が公開されているwebページのURLを張り付けることで、「順位」がハイパーリンク化します。' %>
+      <%= f.text_field :url,class: 'form-control' %>
+    </div>
+    <div class="form-group mt-0 mb-5">
+       <%= f.hidden_field :user_id, value: @user.id ,class: 'form-control' %>
+    </div>
+<% end %>
+
+
+<table class="table table-condensed table-striped text-center">
+      <tbody>
+        <tr>
+          <th>競技一覧</th>
+        </tr>
+        <tr>
+          <th>year/年</th>
+          <th>tournament/競技</th>
+          <th>rank/順位</th>
+          <th></th>
+        </tr>
+       <% @tournaments.each do |tournament| %>
+        <tr>
+          <td><%= tournament.year %>年</td>
+          <td><%= tournament.content %></td>
+          <td><%= link_to tournament.rank, tournament.url%></td>
+          <td>
+            <% if current_user == tournament.user %>
+                <%= link_to "削除", tournament, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+            <% end %>
+          </td>
+        </tr>
+       <% end %>
+       </tbody>
+    </table>
+  
+

@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:message, :edit,  :update,  :destroy]
-  before_action :checked_open_user, only: [:show, :swing]
-  before_action :ensure_correct_user, only: [ :edit,  :update]
+  before_action :require_user_logged_in, only: [:tnew,:message, :edit,  :update,  :destroy]
+  before_action :checked_open_user, only: [:show, :swing, :gear,:history]
+  before_action :ensure_correct_user, only: [:tnew,:edit,  :update]
   
   
   def index
-    @users = User.order(id: :desc).page(params[:page]).per(50)
-    @open_users = User.where(status: 0).order(id: :desc).page(params[:page]).per(50)
+    @users = User.order(id: :desc).page(params[:page]).per(48)
+    @open_users = User.where(status: 0).order(id: :desc).page(params[:page]).per(48)
     #並び替え
     @q = @users.ransack(params[:q])
     @users = @q.result(distinct: true)
@@ -31,6 +31,31 @@ class UsersController < ApplicationController
       set_user
   end
 
+  def gear
+      set_user
+      @golfclubs = set_user.golfclubs
+  end
+
+  def cnew
+    @user = current_user
+    @golfclubs = current_user.golfclubs.all
+    @golfclub = current_user.golfclubs.build
+  end
+
+
+
+  def history
+      set_user
+      @tournaments= set_user.tournaments.order(year: :desc).page(params[:page]).per(6)
+  end
+
+
+  def tnew
+   @user = current_user
+   @tournament = current_user.tournaments.build
+   @tournaments= current_user.tournaments.order(year: :desc)
+  end
+
 
   def new
      @user = User.new
@@ -40,8 +65,8 @@ class UsersController < ApplicationController
   def create
       @user = User.new(user_params)
     if @user.save
-        UserMailer.account_activation(@user).deliver_now
-        flash[:info] = "Please check your email to activate your account."
+        #UserMailer.account_activation(@user).deliver_now
+        #flash[:info] = "登録したあなたのメールを確認し、アカウントを有効化してください。"
         redirect_to root_url
       else
         render 'new'
@@ -74,7 +99,7 @@ class UsersController < ApplicationController
  private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :hcourse ,:distance, :address, :bplace, :bscore, :status, :video, :sex,:channel)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image,  :gear,:hcourse ,:distance, :address, :bplace, :bscore, :status, :video, :sex,:channel,:job,:school,:hobby)
   end
   
   def set_user

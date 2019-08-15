@@ -1,0 +1,56 @@
+<style>
+             table {
+                font-size:13px;
+            }
+</style>
+
+<p class="d-inline">クラブセッティング
+    <% if current_user == user %>
+        <%= link_to "クラブ登録・削除", cnew_user_path(current_user), class: 'btn btn-primary btn-sm mb-1' %>
+    <% end  %>
+    </p>
+    <div class="row text-center">
+      <p class="col-md-9 col-lg-5">
+          <%= image_tag user.gear.thumb_gear.url if user.gear.present? %>
+      </p>
+      <aside class="col-lg-7">
+        <table class="table table-striped">
+         <tbody>
+            <tr>
+              <th>番手</th>
+              <td>クラブ</td>
+            </tr>
+            <% golfclubs.each do |golfclub| %>
+            <tr>
+              <th>ドライバー</th>
+              <td><%= golfclub.driver %></td>
+            </tr>
+            <tr>
+              <th>Dシャフト</th>
+              <td><%= golfclub.dshaft %></td>
+            </tr>
+            <tr>
+              <th>ウッド</th>
+              <td><%= golfclub.wood %></td>
+            </tr>
+            <tr>
+              <th>ユーティリティ</th>
+              <td><%= golfclub.ut %></td>
+            </tr>
+             <tr>
+              <th>アイアン</th>
+              <td><%= golfclub.iron %></td>
+            </tr>
+             <tr>
+              <th>ウェッジ</th>
+              <td><%= golfclub.wedge %></td>
+            </tr>
+             <tr>
+              <th>パター</th>
+              <td><%= golfclub.putter %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </aside>
+    </div>

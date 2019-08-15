@@ -1,10 +1,10 @@
 <div class="row">
   <aside class="col-sm-4">
     <div class="card">
-      <div class="card-header">
+      <div class="card-header border">
         <h3 class="card-title"><%= @user.name %></h3>
       </div>
-      <div class="card-body" id="user_image">
+      <div class="card-body border" id="user_image">
         <% if @user.image? %>
           <%= image_tag @user.image.url if @user.image.present? %>
         <% else %>
@@ -15,7 +15,7 @@
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">ステータス</a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">ステータス</a></li>
       <li class="nav-item"><a href="<%= swing_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(swing_user_path(@user)) %>">スウィング</a></li>
       <li class="nav-item"><a href="<%= gear_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(gear_user_path(@user)) %>">セッティング</a></li>
       <li class="nav-item"><a href="<%= history_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(history_user_path(@user)) %>">競技実績</a></li>
@@ -25,6 +25,6 @@
       <li class="nav-item"><a href="#" class="nav-link">メッセージ</a></li>
       <% end %>    
     </ul>
-   <%= render 'messages/messages', rmessages: @rmessages,message: @message,messages: @messages,messes: @messagees, user: @user %>
+     <%= render 'historys/competi', user: @user, tournaments: @tournaments, tournament: @tournament %>
   </div>
 </div>

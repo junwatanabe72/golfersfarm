@@ -1,6 +1,6 @@
 <h1>Golfersfarm</h1>
 <p>Hi <%= @user.name %>,</p>
 <p>
-Welcome to the Sample App! Click on the link below to activate your account:
+新規登録ありがとうございます！ 以下のリンクをクリックしてあなたのアカウントを有効化しよう！
 </p>
 <%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>

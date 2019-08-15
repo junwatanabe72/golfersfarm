@@ -1,0 +1,22 @@
+  <div class="d-inline">競技一覧
+   <% if current_user == user %>
+    <%= link_to '競技の追加・削除', tnew_user_path(current_user), class: 'btn btn-primary btn-sm mb-1' %>
+  <% end  %>
+  </div>
+    <table class="table table-condensed table-striped text-center">
+      <tbody>
+        <tr>
+          <th>year/年</th>
+          <th>tournament/競技</th>
+          <th>rank/順位</th>
+        </tr>
+       <% tournaments.each do |tournament| %>
+        <tr>
+          <td><%= tournament.year %>年</td>
+          <td><%= tournament.content %></td>
+          <td><%= link_to tournament.rank, tournament.url%></td>
+        </tr>
+       <% end %>
+      </tbody>
+    </table>
+  <%= paginate tournaments %>

@@ -1,26 +1,44 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
-  <img class="img-fluid" src="main_visual.jpg" >
-  
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-5">Welcome to the Golfersfarm</h1>
+      <p class="lead">世界初！ゴルファーのプロフィール登録サイトです！
+      <div class="container">
+        <div class="row">
+          <div class="m-2">
+             <%= link_to 'Contact!', new_contact_path, class: 'btn btn-primary' %>
+            <p class="mt-2">ご要望等、ご連絡ください！</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="container">
+ <%= render 'layouts/info' %>
+</div>
 <% else %>
 
-
-<div class="jumbotron">
-  <h1 class="display-5">Welcome to the Golfersfarm</h1>
-  <p class="lead">世界初！ゴルファーのプロフィール登録サイトです！
-    <br>今すぐ登録してログインしましょう！<br>あなたのゴルファーとしてのプロフィールが公開できます！</p>
-  <hr class="my-4">
-  <div class="container">
-    <div class="row">
-      <div class="m-2">
-        <p>今すぐ登録しよう！</p>
-         <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-5">Welcome to the Golfersfarm</h1>
+      <p class="lead">世界初！ゴルファーのプロフィール登録サイトです！
+        <br>さあ、いますぐ登録して<br>あなたのプロフィールを公開しましょう！</p>
+      <div class="container">
+        <div class="row">
+          <div class="m-2">
+             <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+            <p>今すぐ登録しよう！</p>
+          </div>
+          <div class="m-2">
+             <%= link_to 'learn more!', about_path, class: 'btn btn-lg btn-primary' %>
+             <p>アプリの使い方！</p>
+          </div>
+        </div>
       </div>
-      <div class="m-2">
-       <p>アプリの使い方！</p>
-         <%= link_to 'learn more!', about_path, class: 'btn btn-lg btn-primary' %>
-      </div>
-    </div>
+  </div>
 </div>
-
+<div class="container">
+ <%= render 'layouts/info' %>
+</div>
 <% end %>

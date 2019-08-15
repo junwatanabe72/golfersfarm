@@ -4,7 +4,7 @@ class User < ApplicationRecord
     before_create :create_activation_digest
 
     enum status:{open: 0 , closed: 1}
-    enum sex:{man: 0 , woman: 1}
+    enum sex:{男性: 0 , 女性: 1}
     
     #要素
     
@@ -22,15 +22,22 @@ class User < ApplicationRecord
     validates :address , length: {maximum: 50}
     validates :hcourse , length: {maximum: 50}
     validates :bplace , length: {maximum: 50}
+    validates :hobby , length: {maximum: 50}
+    validates :job , length: {maximum: 50}
+    validates :school , length: {maximum: 50}
     
     has_many :messages ,dependent: :destroy
     #has_many :sent_messages, through: :messages, source: :receiver_id
     has_many :reverses_of_message , class_name: :Message , foreign_key: :receiver_id ,dependent: :destroy
     #has_many :received_messages, through: :reverses_of_message, source: :user
     
+    has_many :tournaments ,dependent: :destroy
+
+    has_many :golfclubs ,dependent: :destroy
 
     has_secure_password
     mount_uploader :image, ImageUploader
+    mount_uploader :gear, ImageUploader
     
     #メソッド
     

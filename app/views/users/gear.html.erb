@@ -15,7 +15,7 @@
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">ステータス</a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">ステータス</a></li>
       <li class="nav-item"><a href="<%= swing_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(swing_user_path(@user)) %>">スウィング</a></li>
       <li class="nav-item"><a href="<%= gear_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(gear_user_path(@user)) %>">セッティング</a></li>
       <li class="nav-item"><a href="<%= history_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(history_user_path(@user)) %>">競技実績</a></li>
@@ -23,8 +23,8 @@
       <li class="nav-item"><a href="<%= message_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(message_user_path(@user)) %>">メッセージ<span class="badge badge-secondary"><%= @count_messages %></span></a></li>
       <% else %>
       <li class="nav-item"><a href="#" class="nav-link">メッセージ</a></li>
-      <% end %>    
+      <% end %>
     </ul>
-   <%= render 'messages/messages', rmessages: @rmessages,message: @message,messages: @messages,messes: @messagees, user: @user %>
+   <%= render 'users/setting', user: @user, golfclubs: @golfclubs %>
   </div>
 </div>
