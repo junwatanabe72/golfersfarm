@@ -20,6 +20,14 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :job
       t.string :school
       
+      t.string  :driver
+      t.string  :dshaft
+      t.string  :wood 
+      t.string  :ut
+      t.string  :iron
+      t.string  :wedge
+      t.string  :putter
+      
       t.string :remember_digest
       t.integer :sex,default: 0, null: false, limit: 1
       t.integer :status,default: 0, null: false, limit: 1

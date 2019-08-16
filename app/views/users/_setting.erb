@@ -4,11 +4,11 @@
             }
 </style>
 
-<p class="d-inline">クラブセッティング
-    <% if current_user == user %>
-        <%= link_to "クラブ登録・削除", cnew_user_path(current_user), class: 'btn btn-primary btn-sm mb-1' %>
-    <% end  %>
-    </p>
+<div class="d-inline">クラブセッティング
+<% if current_user == user %>
+    <%= link_to 'プロフィールの編集', edit_user_path(user), class: 'btn btn-primary btn-sm mb-1' %>
+  <% end  %>
+</div>
     <div class="row text-center">
       <p class="col-md-9 col-lg-5">
           <%= image_tag user.gear.thumb_gear.url if user.gear.present? %>
@@ -20,36 +20,34 @@
               <th>番手</th>
               <td>クラブ</td>
             </tr>
-            <% golfclubs.each do |golfclub| %>
             <tr>
               <th>ドライバー</th>
-              <td><%= golfclub.driver %></td>
+              <td><%= user.driver %></td>
             </tr>
             <tr>
               <th>Dシャフト</th>
-              <td><%= golfclub.dshaft %></td>
+              <td><%= user.dshaft %></td>
             </tr>
             <tr>
               <th>ウッド</th>
-              <td><%= golfclub.wood %></td>
+              <td><%= user.wood %></td>
             </tr>
             <tr>
               <th>ユーティリティ</th>
-              <td><%= golfclub.ut %></td>
+              <td><%= user.ut %></td>
             </tr>
              <tr>
               <th>アイアン</th>
-              <td><%= golfclub.iron %></td>
+              <td><%= user.iron %></td>
             </tr>
              <tr>
               <th>ウェッジ</th>
-              <td><%= golfclub.wedge %></td>
+              <td><%= user.wedge %></td>
             </tr>
              <tr>
               <th>パター</th>
-              <td><%= golfclub.putter %></td>
+              <td><%= user.putter %></td>
             </tr>
-            <% end %>
           </tbody>
         </table>
       </aside>

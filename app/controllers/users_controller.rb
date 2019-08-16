@@ -33,16 +33,8 @@ class UsersController < ApplicationController
 
   def gear
       set_user
-      @golfclubs = set_user.golfclubs
+      
   end
-
-  def cnew
-    @user = current_user
-    @golfclubs = current_user.golfclubs.all
-    @golfclub = current_user.golfclubs.build
-  end
-
-
 
   def history
       set_user
@@ -65,8 +57,8 @@ class UsersController < ApplicationController
   def create
       @user = User.new(user_params)
     if @user.save
-        #UserMailer.account_activation(@user).deliver_now
-        #flash[:info] = "登録したあなたのメールを確認し、アカウントを有効化してください。"
+        UserMailer.account_activation(@user).deliver_now
+        flash[:info] = "アカウント有効化のため、メール送信しました。ご確認ください。"
         redirect_to root_url
       else
         render 'new'
@@ -81,7 +73,7 @@ class UsersController < ApplicationController
      set_user
       if @user.update(user_params)
         flash[:success] = '値を変更しました。'
-        redirect_to @user
+        redirect_to edit_user_path(@user)
       else
         flash.now[:danger] = '変更に失敗しました。'
         render :edit
@@ -99,7 +91,11 @@ class UsersController < ApplicationController
  private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image,  :gear,:hcourse ,:distance, :address, :bplace, :bscore, :status, :video, :sex,:channel,:job,:school,:hobby)
+    params.require(:user).permit(
+      :name, :email, :password, :password_confirmation, :image, :gear,
+      :hcourse ,:distance, :address, :bplace, :bscore, :status, :video,
+      :sex, :channel, :job, :school,  :hobby, :driver,  :dshaft,  :wood, 
+      :ut,  :iron,  :wedge, :putter)
   end
   
   def set_user

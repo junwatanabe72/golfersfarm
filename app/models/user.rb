@@ -25,6 +25,13 @@ class User < ApplicationRecord
     validates :hobby , length: {maximum: 50}
     validates :job , length: {maximum: 50}
     validates :school , length: {maximum: 50}
+    validates :driver , length: {maximum: 50}
+    validates :dshaft , length: {maximum: 50}
+    validates :wood , length: {maximum: 50}
+    validates :ut , length: {maximum: 50}
+    validates :iron , length: {maximum: 50}
+    validates :wedge , length: {maximum: 50}  
+    validates :putter , length: {maximum: 50}
     
     has_many :messages ,dependent: :destroy
     #has_many :sent_messages, through: :messages, source: :receiver_id
@@ -32,8 +39,6 @@ class User < ApplicationRecord
     #has_many :received_messages, through: :reverses_of_message, source: :user
     
     has_many :tournaments ,dependent: :destroy
-
-    has_many :golfclubs ,dependent: :destroy
 
     has_secure_password
     mount_uploader :image, ImageUploader

@@ -1,97 +1,321 @@
-<div class="text-center">
-  <h1>edit</h1>
-</div>
+<style>
+             table {
+                font-size:13px;
+            }
+            
+            h5{
+              color :red;
+            }
+            
+</style>
 
 <div class="row">
-  <div class="col-sm-6 offset-sm-3">
+<h5>プロフィール編集</h5>
 
-    <%= form_with(model: @user, local: true) do |f| %>
+<table class="table table-striped">
+  <tbody>
+     <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
-      <div class="form-group">
-        <%= f.label :name, "名前" %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :email, 'Eメール' %>
-        <%= f.text_field :email, class: 'form-control' %>
-      </div>
+    <tr>
+      <th>項目</th>
+      <th>現在値</th>
+      <th>変更値</th>
+    </tr>
+    <tr>
+      <th>Name/名前</th>
+      <td><%= @user.name %></td>
+      <td>
+        <div class="form-group">
+          <%#= f.label :name, "名前" %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+      </td>
       
-       <div class="form-group">
-        <%= f.label :sex, "性別" %>
-        <%= f.select :sex ,User.sexes.keys.to_a, class: 'form-control' %>
-      </div>
-      
+    </tr>
+    <tr>
+      <th>Email/メール</th>
+      <td><%= @user.email %></td>
+      <td>
+        <div class="form-group">
+          <%#= f.label :email, "メール" %>
+          <%#= f.text_field :email, class: 'form-control' %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>Sex/性別</th>
+      <td><%= @user.sex %></td>
+      <td>
+        <div class="form-group">
+          <%#= f.label :sex, "性別" %>
+          <%= f.text_field :sex, class: 'form-control' %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>Birth_Place/出生地</th>
+      <td><%= @user.bplace %></td>
+      <td>
       <div class="form-group">
-        <%= f.label :bscore, 'ベストスコア' %>
-        <%= f.text_field :bscore, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :distance, '飛距離' %>
-        <%= f.text_field :distance, class: 'form-control' %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :address, '現所在地' %>
-        <%= f.text_field :address, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :bplace, '出生地' %>
+        <%#= f.label :bplace, '出生地' %>
         <%= f.text_field :bplace, class: 'form-control' %>
       </div>
-
+      </td>
+    </tr>
+    <tr>
+      <th>Address/現住所</th>
+      <td><%= @user.address %></td>
+      <td>
       <div class="form-group">
-        <%= f.label :hcourse, 'ホームコース' %>
+        <%#= f.label :address, '現所在地' %>
+        <%= f.text_field :address, class: 'form-control' %>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th>Best_Score/ベストスコア</th>
+      <td><%= @user.bscore %></td>
+      <td>
+      <div class="form-group">
+        <%#= f.label :bscore, 'ベストスコア' %>
+        <%= f.text_field :bscore, class: 'form-control' %>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th>Distance/飛距離</th>
+      <td><%= @user.distance %></td>
+      <td>
+      <div class="form-group">
+        <%#= f.label :distance, '飛距離' %>
+        <%= f.text_field :distance, class: 'form-control' %>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th>Home_Course/所属コース</th>
+      <td><%= @user.hcourse %></td>
+      <td>
+      <div class="form-group">
+        <%#= f.label :hcourse, 'ホームコース' %>
         <%= f.text_field :hcourse, class: 'form-control' %>
       </div>
-      
+      </td>
+    </tr>
+    <tr>
+      <th>Job/職業・勤務先</th>
+      <td><%= @user.job %></td>
+      <td>
       <div class="form-group">
-        <%= f.label :hobby, '趣味' %>
-        <%= f.text_field :hobby, class: 'form-control' %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :job, '職業・勤務先' %>
+        <%#= f.label :job, '職業・勤務先' %>
         <%= f.text_field :job, class: 'form-control' %>
       </div>
-      
+      </td>
+    </tr>
+    <tr>
+      <th>School/出身校</th>
+      <td><%= @user.school %></td>
+       <td>
        <div class="form-group">
-        <%= f.label :school, '出身校' %>
+        <%#= f.label :school, '出身校' %>
         <%= f.text_field :school, class: 'form-control' %>
       </div>
-    
+      </td>
+    </tr>
+    <tr>
+      <th>Hobby/趣味</th>
+      <td><%= @user.hobby %></td>
+      <td>
       <div class="form-group">
-        <%= f.label :image, '紹介写真' %>
-        <%= f.file_field :image, class: 'form-control' %>
+        <%#= f.label :hobby, '趣味' %>
+        <%= f.text_field :hobby, class: 'form-control' %>
       </div>
-      
-       <div class="form-group">
-        <%= f.label :gear, '使用クラブ' %>
-        <%= f.file_field :gear, class: 'form-control' %>
-      </div>
-      
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-      <div class="form-group">
-        <%= f.label :video, 'スウィング' %>
-        <%= f.text_field :video, class: 'form-control' %>
-      </div>
+<h5>youtube関連編集</h5>
 
+<table class="table">
+  <tbody>
+  <tr>
+      <th>Channel/youtubeチャンネル<br><%= raw Rinku.auto_link(h(@user.channel)) %></th>
+      
+      <td>
       <div class="form-group">
-        <%= f.label :channel, "youtubeチャンネル" %>
+        <%#= f.label :channel, "youtubeチャンネル" %>
         <%= f.text_field :channel, class: 'form-control' %>
       </div>
-
-      <div class="form-group">
-        <%= f.label :password, 'パスワード' %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="table">
+  <tbody>
+  <tr>
+      <th>
+        <div class="form-group">
+        <%= f.label :video, 'Video/スウィング動画' %>
+        <%= f.text_field :video, class: 'form-control' %>
+      </div>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <% iframe = content_tag(
+          :iframe,'', # empty body
+          width: 560,
+          height: 315,
+          src: "https://www.youtube.com/embed/#{@user.video}?rel=0",
+          frameborder: 0,
+          allowfullscreen: true ) %>
+        <%= content_tag(:div, iframe, class: 'youtube-container') %>    
+      </td>
+    </tr>
+  </tbody>
+</table>
+ 
+ <h5>クラブセッティング編集</h5>
+ 
+ <table class="table table-striped">
+  <tbody>
+    <tr>
+      <th>クラブ</th>
+      <th>現在値</th>
+      <th>変更値</th>            
+    </tr>
+    <tr>
+      <th>ドライバー</th>
+      <td><%= @user.driver %></td>
+      <td>
+        <div class="form-group">
+          <%= f.text_field :driver,class: 'form-control' %>
+          <%#= f.label :driver %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>Dシャフト</th>
+      <td><%= @user.dshaft %></td>
+      <td>
+        <div class="form-group">
+          <%= f.text_field :dshaft,class: 'form-control' %>
+          <%#= f.label :dshaft %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>ウッド</th>
+        <td><%= @user.wood %></td>
+        <td>
+          <div class="form-group">
+            <%= f.text_field :wood,class: 'form-control' %>
+            <%#= f.label :wood %>
+          </div>
+        </td>
+    </tr>
+    <tr>
+      <th>ユーティリティ</th>
+        <td><%= @user.ut %></td>
+        <td>
+          <div class="form-group">
+            <%= f.text_field :ut,class: 'form-control' %>
+            <%#= f.label :ut %>
+          </div>
+        </td>
+    </tr>
+    <tr>
+      <th>アイアン</th>
+        <td><%= @user.iron %></td>
+        <td>
+          <div class="form-group">
+            <%= f.text_field :iron,class: 'form-control' %>
+            <%#= f.label :iron%>
+          </div>
+        </td>
+    </tr>
+    <tr>
+      <th>ウェッジ</th>
+        <td><%= @user.wedge %></td>
+        <td>
+          <div class="form-group">
+            <%= f.text_field :wedge,class: 'form-control' %>
+            <%#= f.label :wedge %>
+          </div>
+        </td>
+    </tr>
+    <tr>
+      <th>パター</th>
+        <td><%= @user.putter %></td>
+        <td>
+          <div class="form-group">
+            <%= f.text_field :putter,class: 'form-control' %>
+            <%#= f.label :putter %>
+          </div>
+        </td>
+    </tr>
+  </tbody>
+</table>
+ 
+ 
+ <h5>フォト編集</h5>
+ 
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Imagephoto/プロフィール写真
+        <br>
+          <div class="form-group">
+            <%#= f.label :image, '紹介写真' %>
+            <%= f.file_field :image, class: 'form-control' %>
+          </div>
+      </th>
+      <td>
+       <%= image_tag @user.image.thumb_edit.url if @user.image.present? %>
+      </td>
+    </tr>
+     <tr>
+      <th>Gearphoto/クラブセッティング写真
+        <br>
+          <div class="form-group">
+            <%#= f.label :gear, '使用クラブ' %>
+            <%= f.file_field :gear, class: 'form-control' %>
+          </div>
+      </th>
+      <td>
+        <%= image_tag @user.gear.thumb_edit.url if @user.gear.present? %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      
+ 
+ 
+ <h5>パスワードその他編集</h5>
+ 
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Password/パスワード</th>
+      <td>
+        <div class="form-group">
+        <%#= f.label :password, 'パスワード' %>
         <%= f.password_field :password, class: 'form-control' %>
       </div>
-
-      <div class="form-group">
-        <%= f.label :password_confirmation, 'パスワード確認' %>
+      </td>
+    </tr>
+    <tr>
+      <th>Password-confirmation/パスワード再確認</th>
+      <td>
+        <div class="form-group">
+        <%#= f.label :password_confirmation, 'パスワード確認' %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
       <div class="form-group">
         <%= f.label :status, '公開 or　非公開※' %>
@@ -99,7 +323,8 @@
         <small>※ログインユーザーにのみプロフィールを公開します。</small>
       </div>
 
+      
+
       <%= f.submit '編集', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
-</div>

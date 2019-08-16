@@ -1,117 +1,96 @@
 <h5>クラブセッティング登録</h5>
   <table class="table table-condensed table-striped text-center">
-    <%= form_with(model: @golfclub, local: true) do |f| %>
+    <%= form_with(model: @user, local: true) do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
       <tbody>
-        <% @golfclubs.each do |golfclub| %>
             <tr>
               <th>番手</th>
               <th>クラブ</th>
               <th>登録フォーム<%= f.submit '登録', class: 'btn btn-primary ml-2' %>  </th>
-              <th>削除</th>
             </tr>
             <tr>
               <th>ドライバー</th>
-              <td><%= golfclub.driver %></td>
+              <td><%= @user.driver %></td>
               <td>
                 <div class="form-group">
                   <%= f.text_field :driver,class: 'form-control' %>
                   <%#= f.label :driver %>
                 </div>
               </td>
-              <td>
-                <%= link_to "削除", golfclub, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-              </td>
             </tr>
             
             <tr>
               <th>Dシャフト</th>
-              <td><%= golfclub.dshaft %></td>
+              <td><%= @user.dshaft %></td>
               <td>
                 <div class="form-group">
                   <%= f.text_field :dshaft,class: 'form-control' %>
                   <%#= f.label :dshaft %>
                 </div>
               </td>
-              <td>
-                <%= link_to "削除", golfclub, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-              </td>
+             
             </tr>
             
             <tr>
               <th>ウッド</th>
-              <td><%= golfclub.wood %></td>
+              <td><%= @user.wood %></td>
               <td>
                 <div class="form-group">
                   <%= f.text_field :wood,class: 'form-control' %>
                   <%#= f.label :wood %>
                 </div>
               </td>
-              <td>
-              <%= link_to "削除", golfclub, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-              </td>
+            
             </tr>
             
             <tr>
               <th>ユーティリティ</th>
-              <td><%= golfclub.ut %></td>
+              <td><%= @user.ut %></td>
               <td>
                 <div class="form-group">
                   <%= f.text_field :ut,class: 'form-control' %>
                   <%#= f.label :ut %>
                 </div>
               </td>
-              <td>
-              <%= link_to "削除", golfclub, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-              </td>
+            
             </tr>
             
             <tr>
               <th>アイアン</th>
-              <td><%= golfclub.iron%></td>
+              <td><%= @user.iron%></td>
               <td>
                 <div class="form-group">
                   <%= f.text_field :iron,class: 'form-control' %>
                   <%#= f.label :iron%>
                 </div>
               </td>
-              <td>
-              <%= link_to "削除", golfclub, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-              </td>
+            
             </tr>
             
             <tr>
               <th>ウェッジ</th>
-              <td><%= golfclub.wedge %></td>
+              <td><%= @user.wedge %></td>
               <td>
                 <div class="form-group">
                   <%= f.text_field :wedge,class: 'form-control' %>
                   <%#= f.label :wedge %>
                 </div>
               </td>
-              <td>
-              <%= link_to "削除", @golfclub, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-              </td>
+             
             </tr>
             
             <tr>
               <th>パター</th>
-              <td><%= golfclub.putter %></td>
+              <td><%= @user.putter %></td>
               <td>
                 <div class="form-group">
                   <%= f.text_field :putter,class: 'form-control' %>
                   <%#= f.label :putter %>
                 </div>
               </td>
-              <td>
-              <%= link_to "削除", golfclub, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-              </td>
+             
             </tr>
-        <% end %>
       </tbody>
-      <div class="form-group mt-0 mb-5">
-       <%= f.hidden_field :user_id, value: @user.id ,class: 'form-control' %>
-    </div>
   <% end %>
 </table>
     

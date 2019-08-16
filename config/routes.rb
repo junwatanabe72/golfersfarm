@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'golfclubs/create'
-  get 'golfclubs/destroy'
   root to: "toppages#index"
 
   get "login", to: "sessions#new"
@@ -22,12 +20,10 @@ Rails.application.routes.draw do
       get :gear
       get :history 
       get :tnew
-      get :cnew
     end
   end
  
   resources :tournaments,only:[:create,:destroy]
-  resources :golfclubs,only:[:create,:destroy]
   resources :messages, only:[:create , :destroy]
   resources :contacts, only: [:new, :create]
   

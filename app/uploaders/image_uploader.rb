@@ -41,6 +41,14 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [400, 350]
   end
 
+  version :thumb_edit do
+    process :resize_to_fit => [400, 200]
+  end
+
+
+
+
+
 
   def  size_range
       1..5.megabytes

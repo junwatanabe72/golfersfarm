@@ -10,27 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_121824) do
+ActiveRecord::Schema.define(version: 2019_08_12_112308) do
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email"
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "golfclubs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "driver"
-    t.string "dshaft"
-    t.string "wood"
-    t.string "ut"
-    t.string "iron"
-    t.string "wedge"
-    t.string "putter"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_golfclubs_on_user_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -71,6 +57,13 @@ ActiveRecord::Schema.define(version: 2019_08_15_121824) do
     t.string "hobby"
     t.string "job"
     t.string "school"
+    t.string "driver"
+    t.string "dshaft"
+    t.string "wood"
+    t.string "ut"
+    t.string "iron"
+    t.string "wedge"
+    t.string "putter"
     t.string "remember_digest"
     t.integer "sex", limit: 1, default: 0, null: false
     t.integer "status", limit: 1, default: 0, null: false
@@ -81,7 +74,6 @@ ActiveRecord::Schema.define(version: 2019_08_15_121824) do
     t.datetime "activated_at"
   end
 
-  add_foreign_key "golfclubs", "users"
   add_foreign_key "messages", "users"
   add_foreign_key "messages", "users", column: "receiver_id"
   add_foreign_key "tournaments", "users"

@@ -16,19 +16,6 @@ class TournamentsController < ApplicationController
     end
   end
 
-
-  #def update
-      #if @tournament.update(user_params)
-        #flash[:success] = '値を変更しました。'
-        #redirect_to tnew_user_url(@tournament.user_id)
-      #else
-        #@user = current_user
-        #flash.now[:danger] = '変更に失敗しました。'
-        #render "users/tnew"
-      #end
-  #end
-
-
   def destroy
     @tournament.destroy
     flash[:success] = "競技を削除しました。"
