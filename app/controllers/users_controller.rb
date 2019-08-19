@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:tnew,:message, :edit,  :update,  :destroy]
-  before_action :checked_open_user, only: [:show, :swing, :gear,:history]
-  before_action :ensure_correct_user, only: [:tnew,:edit,  :update]
+  before_action :require_user_logged_in, only: [:tnew ,:message  ,:edit  ,:update ,:destroy ]
+  before_action :checked_open_user, only: [:show  ,:swing ,:gear  ,:history]
+  before_action :ensure_correct_user, only: [:tnew  ,:edit  ,:update]
   
   
   def index
@@ -57,8 +57,8 @@ class UsersController < ApplicationController
   def create
       @user = User.new(user_params)
     if @user.save
-        #UserMailer.account_activation(@user).deliver_now
-        #flash[:info] = "アカウント有効化のため、メール送信しました。ご確認ください。"
+        UserMailer.account_activation(@user).deliver_now
+        flash[:info] = "アカウント有効化のため、メール送信しました。ご確認ください。"
         redirect_to root_url
       else
         render 'new'

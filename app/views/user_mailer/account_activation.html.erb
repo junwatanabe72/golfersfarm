@@ -1,6 +1,6 @@
 <h1>Golfersfarm</h1>
-<p>Hi <%= @user.name %>,</p>
+<p><%= @user.name %>様</p>
 <p>
-新規登録ありがとうございます！ 以下のリンクをクリックしてあなたのアカウントを有効化しよう！
+新規登録ありがとうございます！ 以下のリンクをクリックして、アカウントを有効化してください！
 </p>
 <%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>

@@ -28,16 +28,16 @@ class SessionsController < ApplicationController
   def login(email, password)
     @user = User.find_by(email: email)
     if @user && @user.authenticate(password)
-      #if @user.activated?
-      # ログイン成功
+      if @user.activated?
+       ログイン成功
         session[:user_id] = @user.id
         return true
-      #else
-      #  message  = "アカウントが有効化されていません。"
-      # message += "送信したメールをご確認ください。"
-      #  flash[:warning] = message
-       # return false
-      #end
+      else
+        message  = "アカウントが有効化されていません。"
+       message += "送信したメールをご確認ください。"
+        flash[:warning] = message
+        return false
+      end
     else
        #ログイン失敗
       return false

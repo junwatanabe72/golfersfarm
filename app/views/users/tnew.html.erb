@@ -1,11 +1,10 @@
+<%= form_with(model: @tournament, local: true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
  <table class="table table-condensed table-striped text-center m-0">
       <tbody>
          <tr>
           <th>登録フォーム</th>
-          
         </tr>
-<%= form_with(model: @tournament, local: true) do |f| %>
-  <%= render 'layouts/error_messages', model: f.object %>
        <tr>
           <td>
             <div class="form-group">

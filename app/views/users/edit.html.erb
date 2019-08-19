@@ -3,19 +3,20 @@
                 font-size:13px;
             }
             
-            h5{
+            h3{
+              margin:5px;
               color :red;
             }
             
 </style>
 
 <div class="row">
-<h5>プロフィール編集</h5>
-
+<div class="container">
+<%= form_with(model: @user, local: true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <h3>プロフィール編集</h3>
 <table class="table table-striped">
   <tbody>
-     <%= form_with(model: @user, local: true) do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
     <tr>
       <th>項目</th>
       <th>現在値</th>
@@ -135,7 +136,7 @@
   </tbody>
 </table>
 
-<h5>youtube関連編集</h5>
+<h3>youtube関連編集</h3>
 
 <table class="table">
   <tbody>
@@ -176,7 +177,7 @@
   </tbody>
 </table>
  
- <h5>クラブセッティング編集</h5>
+ <h3>クラブセッティング編集</h3>
  
  <table class="table table-striped">
   <tbody>
@@ -259,7 +260,7 @@
 </table>
  
  
- <h5>フォト編集</h5>
+ <h3>フォト編集</h3>
  
 <table class="table">
   <tbody>
@@ -292,7 +293,7 @@
       
  
  
- <h5>パスワードその他編集</h5>
+ <h3>パスワードその他編集</h3>
  
 <table class="table">
   <tbody>
@@ -324,7 +325,8 @@
       </div>
 
       
-
-      <%= f.submit '編集', class: 'btn btn-primary btn-block' %>
+<%= f.submit '編集', class: 'btn btn-primary btn-block' %>
+      
     <% end %>
   </div>
+</div>
