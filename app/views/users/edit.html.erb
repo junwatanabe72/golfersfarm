@@ -28,7 +28,9 @@
       <td>
         <div class="form-group">
           <%#= f.label :name, "名前" %>
+          <div data-toggle="tooltip" title="">
           <%= f.text_field :name, class: 'form-control' %>
+          </div>
         </div>
       </td>
       
@@ -49,7 +51,7 @@
       <td>
         <div class="form-group">
           <%#= f.label :sex, "性別" %>
-          <%= f.text_field :sex, class: 'form-control' %>
+          <%= f.select :sex ,User.sexes.keys.to_a, class: 'form-control' %>
         </div>
       </td>
     </tr>
@@ -59,7 +61,9 @@
       <td>
       <div class="form-group">
         <%#= f.label :bplace, '出生地' %>
+        <div data-toggle="tooltip" title="公開できる範囲の出生地。">
         <%= f.text_field :bplace, class: 'form-control' %>
+      </div>
       </div>
       </td>
     </tr>
@@ -69,7 +73,9 @@
       <td>
       <div class="form-group">
         <%#= f.label :address, '現所在地' %>
+        <div data-toggle="tooltip" title="公開できる範囲の現所在地">
         <%= f.text_field :address, class: 'form-control' %>
+        </div>
       </div>
       </td>
     </tr>
@@ -79,7 +85,9 @@
       <td>
       <div class="form-group">
         <%#= f.label :bscore, 'ベストスコア' %>
+        <div data-toggle="tooltip" title="数字三字まで。">
         <%= f.text_field :bscore, class: 'form-control' %>
+      </div>
       </div>
       </td>
     </tr>
@@ -88,8 +96,10 @@
       <td><%= @user.distance %></td>
       <td>
       <div class="form-group">
+        <div data-toggle="tooltip" title="数字三字まで。">
         <%#= f.label :distance, '飛距離' %>
         <%= f.text_field :distance, class: 'form-control' %>
+        </div>
       </div>
       </td>
     </tr>
@@ -98,8 +108,10 @@
       <td><%= @user.hcourse %></td>
       <td>
       <div class="form-group">
+        <div data-toggle="tooltip" title="所属コースもしくはお気に入りコース。">
         <%#= f.label :hcourse, 'ホームコース' %>
         <%= f.text_field :hcourse, class: 'form-control' %>
+        </div>
       </div>
       </td>
     </tr>
@@ -109,7 +121,9 @@
       <td>
       <div class="form-group">
         <%#= f.label :job, '職業・勤務先' %>
+        <div data-toggle="tooltip" title="職業や勤務先を公開できる範囲で。">
         <%= f.text_field :job, class: 'form-control' %>
+        </div>
       </div>
       </td>
     </tr>
@@ -119,7 +133,9 @@
        <td>
        <div class="form-group">
         <%#= f.label :school, '出身校' %>
+        <div data-toggle="tooltip" title="出身大学や高校など。">
         <%= f.text_field :school, class: 'form-control' %>
+        </div>
       </div>
       </td>
     </tr>
@@ -129,7 +145,9 @@
       <td>
       <div class="form-group">
         <%#= f.label :hobby, '趣味' %>
+        <div data-toggle="tooltip" title="趣味をご自由に。">
         <%= f.text_field :hobby, class: 'form-control' %>
+        </div>
       </div>
       </td>
     </tr>
@@ -146,7 +164,9 @@
       <td>
       <div class="form-group">
         <%#= f.label :channel, "youtubeチャンネル" %>
+        <div data-toggle="tooltip" title="自身のyoutubechannelのURLを張付ける。">
         <%= f.text_field :channel, class: 'form-control' %>
+        </div>
       </div>
       </td>
     </tr>
@@ -158,7 +178,11 @@
       <th>
         <div class="form-group">
         <%= f.label :video, 'Video/スウィング動画' %>
+       <div data-toggle="tooltip" 
+       title=":最大10秒程度の自身のスウィングを撮影したyoutube動画URLを張付ける。
+       ※youtube動画画面の右下[共有]→[埋込]にあるURL[https://www.youtube.com/embed/○○○○○○○]における[○○○○○○]を入力">
         <%= f.text_field :video, class: 'form-control' %>
+        </div>
       </div>
       </th>
     </tr>
@@ -191,8 +215,10 @@
       <td><%= @user.driver %></td>
       <td>
         <div class="form-group">
+          <div data-toggle="tooltip" title="メーカー、使用ギアをご自由に。">
           <%= f.text_field :driver,class: 'form-control' %>
           <%#= f.label :driver %>
+          </div>
         </div>
       </td>
     </tr>
@@ -269,7 +295,9 @@
         <br>
           <div class="form-group">
             <%#= f.label :image, '紹介写真' %>
+            <div data-toggle="tooltip" title="容量５ＭＢまでのご自身のプロフィール写真">
             <%= f.file_field :image, class: 'form-control' %>
+            </div>
           </div>
       </th>
       <td>
@@ -281,7 +309,9 @@
         <br>
           <div class="form-group">
             <%#= f.label :gear, '使用クラブ' %>
+            <div data-toggle="tooltip" title="容量５ＭＢまでのご自身のクラブセッティング写真">
             <%= f.file_field :gear, class: 'form-control' %>
+            </div>
           </div>
       </th>
       <td>
@@ -302,7 +332,9 @@
       <td>
         <div class="form-group">
         <%#= f.label :password, 'パスワード' %>
+        <div data-toggle="tooltip" title="パスワードを変更したい場合のみ。再設定と合わせて">
         <%= f.password_field :password, class: 'form-control' %>
+      </div>
       </div>
       </td>
     </tr>
@@ -320,8 +352,11 @@
 
       <div class="form-group">
         <%= f.label :status, '公開 or　非公開※' %>
+        <div data-toggle="tooltip" 
+        title="[open]は、外部ユーザーにもプロフィールが公開される。[closed]は、ログインユーザーにのみプロフィールが公開される。">
         <%= f.select :status ,User.statuses.keys.to_a, class: 'form-control' %>
-        <small>※ログインユーザーにのみプロフィールを公開します。</small>
+         <small>※ログインユーザーにのみプロフィールを公開します。</small>
+        </div>
       </div>
 
       

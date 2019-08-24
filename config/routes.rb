@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'relationships/create'
+  get 'relationships/destroy'
   root to: "toppages#index"
 
   get "login", to: "sessions#new"
@@ -20,12 +22,16 @@ Rails.application.routes.draw do
       get :gear
       get :history 
       get :tnew
+      get :followings
+      get :followers
     end
   end
  
   resources :tournaments,only:[:create,:destroy]
   resources :messages, only:[:create , :destroy]
   resources :contacts, only: [:new, :create]
+  
+  resources :relationships, only: [:create, :destroy]
   
   resources :account_activations, only: [:edit]
   

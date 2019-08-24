@@ -1,0 +1,19 @@
+  <div class="d-inline">フォロー一覧
+  </div>
+  <div class="container">
+    <div class="row">
+      <% followings.each do |following| %>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="mt-1 mb-1" id="user_image">
+            <%= link_to following.name, user_path(following) %>
+              <% if following.image? %>
+                <%= image_tag following.image.thumb_in.url if following.image.present? %>
+              <% else %>
+                <%= image_tag "default.jpg" %>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+      <%= paginate followings %>
+    </div>
+  </div>

@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
 
   def counts(user)
     @count_messages = user.reverses_of_message.count
-    
+    @count_followings = user.followings.count
+    @count_followers = user.followers.count
   end
     
     

@@ -8,20 +8,26 @@
        <tr>
           <td>
             <div class="form-group">
-              <%= f.text_field :year,class: 'form-control' %>
-              <%= f.label :year, 'year/年(数値4字迄)' %>
+              <div data-toggle="tooltip" title="西暦表示。数値４字で。">
+                <%= f.text_field :year,class: 'form-control' %>
+              </div>
+                <%= f.label :year, 'year/年' %>
             </div>
           </td>
           <td>
             <div class="form-group">
+              <div data-toggle="tooltip" title="参加競技の名称。５０字まで">
               <%= f.text_field :content,class: 'form-control' %>
-              <%= f.label :content, "tournament/競技（50字迄）" %>
+              </div>
+              <%= f.label :content, "tournament/競技" %>
             </div>
           </td>
           <td>
             <div class="form-group">
+              <div data-toggle="tooltip" title="順位等の結果。１０字まで">
               <%= f.text_field :rank,class: 'form-control' %>
-              <%= f.label :rank, 'rank/順位（10字迄）' %>
+              </div>
+              <%= f.label :rank, 'rank/順位' %>
             </div>
           </td>
           <td>
@@ -31,8 +37,10 @@
         </tbody>
     </table>
     <div class="form-group">
-      <%= f.label :url, '競技結果が公開されているwebページのURLを張り付けることで、「順位」がハイパーリンク化します。' %>
+      <%= f.label :url, '競技結果のURL' %>
+      <div data-toggle="tooltip" title="競技結果が公開されているwebページのURLを張り付けることで、「順位」がリンク化します。">
       <%= f.text_field :url,class: 'form-control' %>
+      </div>
     </div>
     <div class="form-group mt-0 mb-5">
        <%= f.hidden_field :user_id, value: @user.id ,class: 'form-control' %>

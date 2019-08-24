@@ -1,0 +1,18 @@
+  <h1　class="mt-3">フォロワー一覧</h1>
+  <div class="container">
+    <div class="row">
+      <% followers.each do |follower| %>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="mt-1 mb-1" id="user_image">
+            <%= link_to follower.name, user_path(follower) %>
+              <% if follower.image? %>
+                <%= image_tag follower.image.thumb_in.url if follower.image.present? %>
+              <% else %>
+                <%= image_tag "default.jpg" %>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+      <%= paginate followers %>
+    </div>
+  </div>

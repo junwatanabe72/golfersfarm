@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:tnew ,:message  ,:edit  ,:update ,:destroy ]
+  before_action :require_user_logged_in, only: [:tnew ,:message  ,:edit  ,:update ,:destroy,:followings, :followers ]
   before_action :checked_open_user, only: [:show  ,:swing ,:gear  ,:history]
   before_action :ensure_correct_user, only: [:tnew  ,:edit  ,:update]
   
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def show
       set_user
+      counts(@user)
   end
 
   def message
@@ -29,16 +30,18 @@ class UsersController < ApplicationController
 
   def swing
       set_user
+      counts(@user)
   end
 
   def gear
       set_user
-      
+      counts(@user)
   end
 
   def history
       set_user
       @tournaments= set_user.tournaments.order(year: :desc).page(params[:page]).per(6)
+      counts(@user)
   end
 
 
@@ -46,12 +49,12 @@ class UsersController < ApplicationController
    @user = current_user
    @tournament = current_user.tournaments.build
    @tournaments= current_user.tournaments.order(year: :desc)
+   counts(@user)
   end
 
 
   def new
      @user = User.new
-    
   end
 
   def create
@@ -85,6 +88,18 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:success] = 'ユーザー登録を削除しました'
     redirect_to toppages_url
+  end
+
+  def followings
+    @user = User.find(params[:id])
+    @followings = @user.followings.page(params[:page]).per(18)
+    counts(@user)
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers.page(params[:page]).per(18)
+    counts(@user)
   end
 
 
