@@ -19,12 +19,10 @@
   <tbody>
     <tr>
       <th>項目</th>
-      <th>現在値</th>
       <th>変更値</th>
     </tr>
     <tr>
       <th>Name/名前</th>
-      <td><%= @user.name %></td>
       <td>
         <div class="form-group">
           <%#= f.label :name, "名前" %>
@@ -38,16 +36,10 @@
     <tr>
       <th>Email/メール</th>
       <td><%= @user.email %></td>
-      <td>
-        <div class="form-group">
-          <%#= f.label :email, "メール" %>
-          <%#= f.text_field :email, class: 'form-control' %>
-        </div>
-      </td>
     </tr>
     <tr>
       <th>Sex/性別</th>
-      <td><%= @user.sex %></td>
+      
       <td>
         <div class="form-group">
           <%#= f.label :sex, "性別" %>
@@ -57,7 +49,7 @@
     </tr>
     <tr>
       <th>Birth_Place/出生地</th>
-      <td><%= @user.bplace %></td>
+     
       <td>
       <div class="form-group">
         <%#= f.label :bplace, '出生地' %>
@@ -69,19 +61,17 @@
     </tr>
     <tr>
       <th>Address/現住所</th>
-      <td><%= @user.address %></td>
       <td>
-      <div class="form-group">
-        <%#= f.label :address, '現所在地' %>
-        <div data-toggle="tooltip" title="公開できる範囲の現所在地">
-        <%= f.text_field :address, class: 'form-control' %>
+        <div class="form-group">
+          <%#= f.label :address, '現所在地' %>
+            <div data-toggle="tooltip" title="公開できる範囲の現所在地">
+              <%= f.text_field :address, class: 'form-control' %>
+            </div>
         </div>
-      </div>
       </td>
     </tr>
     <tr>
       <th>Best_Score/ベストスコア</th>
-      <td><%= @user.bscore %></td>
       <td>
       <div class="form-group">
         <%#= f.label :bscore, 'ベストスコア' %>
@@ -93,7 +83,6 @@
     </tr>
     <tr>
       <th>Distance/飛距離</th>
-      <td><%= @user.distance %></td>
       <td>
       <div class="form-group">
         <div data-toggle="tooltip" title="数字三字まで。">
@@ -105,7 +94,6 @@
     </tr>
     <tr>
       <th>Home_Course/所属コース</th>
-      <td><%= @user.hcourse %></td>
       <td>
       <div class="form-group">
         <div data-toggle="tooltip" title="所属コースもしくはお気に入りコース。">
@@ -117,7 +105,6 @@
     </tr>
     <tr>
       <th>Job/職業・勤務先</th>
-      <td><%= @user.job %></td>
       <td>
       <div class="form-group">
         <%#= f.label :job, '職業・勤務先' %>
@@ -129,7 +116,6 @@
     </tr>
     <tr>
       <th>School/出身校</th>
-      <td><%= @user.school %></td>
        <td>
        <div class="form-group">
         <%#= f.label :school, '出身校' %>
@@ -141,7 +127,6 @@
     </tr>
     <tr>
       <th>Hobby/趣味</th>
-      <td><%= @user.hobby %></td>
       <td>
       <div class="form-group">
         <%#= f.label :hobby, '趣味' %>
@@ -158,17 +143,18 @@
 
 <table class="table">
   <tbody>
-  <tr>
+    <tr>
       <th>Channel/youtubeチャンネル<br><%= raw Rinku.auto_link(h(@user.channel)) %></th>
-      
-      <td>
-      <div class="form-group">
-        <%#= f.label :channel, "youtubeチャンネル" %>
-        <div data-toggle="tooltip" title="自身のyoutubechannelのURLを張付ける。">
-        <%= f.text_field :channel, class: 'form-control' %>
+    </tr>
+    <tr>
+      <th>
+        <div class="form-group">
+            <%#= f.label :channel, "youtubeチャンネル" %>
+          <div data-toggle="tooltip" title="自身のyoutubechannelのURLを張付ける。">
+            <%= f.text_field :channel, class: 'form-control' %>
+          </div>
         </div>
-      </div>
-      </td>
+      </th>
     </tr>
   </tbody>
 </table>
@@ -207,12 +193,10 @@
   <tbody>
     <tr>
       <th>クラブ</th>
-      <th>現在値</th>
       <th>変更値</th>            
     </tr>
     <tr>
       <th>ドライバー</th>
-      <td><%= @user.driver %></td>
       <td>
         <div class="form-group">
           <div data-toggle="tooltip" title="メーカー、使用ギアをご自由に。">
@@ -224,7 +208,6 @@
     </tr>
     <tr>
       <th>Dシャフト</th>
-      <td><%= @user.dshaft %></td>
       <td>
         <div class="form-group">
           <%= f.text_field :dshaft,class: 'form-control' %>
@@ -234,7 +217,6 @@
     </tr>
     <tr>
       <th>ウッド</th>
-        <td><%= @user.wood %></td>
         <td>
           <div class="form-group">
             <%= f.text_field :wood,class: 'form-control' %>
@@ -244,7 +226,6 @@
     </tr>
     <tr>
       <th>ユーティリティ</th>
-        <td><%= @user.ut %></td>
         <td>
           <div class="form-group">
             <%= f.text_field :ut,class: 'form-control' %>
@@ -254,7 +235,6 @@
     </tr>
     <tr>
       <th>アイアン</th>
-        <td><%= @user.iron %></td>
         <td>
           <div class="form-group">
             <%= f.text_field :iron,class: 'form-control' %>
@@ -264,7 +244,6 @@
     </tr>
     <tr>
       <th>ウェッジ</th>
-        <td><%= @user.wedge %></td>
         <td>
           <div class="form-group">
             <%= f.text_field :wedge,class: 'form-control' %>
@@ -274,7 +253,6 @@
     </tr>
     <tr>
       <th>パター</th>
-        <td><%= @user.putter %></td>
         <td>
           <div class="form-group">
             <%= f.text_field :putter,class: 'form-control' %>

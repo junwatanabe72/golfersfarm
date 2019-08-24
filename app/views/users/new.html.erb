@@ -15,7 +15,9 @@
 
       <div class="form-group">
         <%= f.label :email, 'Email' %>
-        <%= f.text_field :email, class: 'form-control' %>
+          <div data-toggle="tooltip" title="有効なEメールアドレス。アカウント有効化時に使用されます。">
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
       </div>
 
        <div class="form-group">
@@ -57,7 +59,9 @@
 
       <div class="form-group">
         <%= f.label :password, 'Password' %>
+        <div data-toggle="tooltip" title="8字以上。">
         <%= f.password_field :password, class: 'form-control' %>
+        </div>
       </div>
 
       <div class="form-group">
