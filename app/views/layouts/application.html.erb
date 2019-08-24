@@ -2,6 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="ゴルファーのプロフィール公開共有アプリです。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Golfersfarm</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
     <meta name="keywords" content="ゴルファー,ゴルフ,登録,プロフィール公開,共有,自己紹介">
     <meta property="og:url" content="https://www.golfersfarm.com/" />
     <meta property="og:title" content="Golfersfarm" />
@@ -10,18 +17,10 @@
     <meta property="og:site_name" content="Golfersfarm" />
     <meta property="og:locale" content="ja_JP" />
     <meta property="fb:app_id" content="1202036709989093" />
-    <meta property="og:image" content="https://www.golfersfarm.com/assets/top.jpg" />
-    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:image"  content="https://res.cloudinary.com/hqejvhqad/image/upload/v1566650528/fb_logo_damme0.png" />
+    <meta property="og:image:type" content="image/png" />
     
-    
-    <meta name="description" content="ゴルファーのプロフィール公開共有アプリです。">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Golfersfarm</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
