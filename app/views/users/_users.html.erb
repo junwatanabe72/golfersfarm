@@ -1,4 +1,4 @@
-<div class=" mt-4 container">
+<div class="mt-4 container">
 <div class="mb-4">
   <%= search_form_for @q do |f| %>
     <%= f.label :name_or_address, "Keyword" %>
@@ -9,7 +9,6 @@
 </div>
 
 <% if logged_in? %>
-
   <% if users.any? %>
       <div class="container">
         <div class="row">
@@ -39,7 +38,6 @@
   <% if o_users.any? %>
       <div class="container">
         <div class="row">
-         
           <% o_users.each do |user| %>
             <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
               <div class="card mt-1 mb-1 border-bottom border-top" id="user_image">
