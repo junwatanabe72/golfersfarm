@@ -1,16 +1,25 @@
-<footer class="footer mt-auto py-3">
-  <div class="container">
-    <div class="row">
+<style>
+
+#sticky-footer {
+  flex-shrink: none;
+}
+a:hover {
+  color:;
+}
+</style>
+
+<footer id="sticky-footer" class="py-4 bg-dark ">
+    <div class="container text-center">
       <div class="text-center">    
-        <%= link_to 'お問合せ', new_contact_path,{class: "ml-1"} %>
-        <%= link_to '使い方について', about_path, {class: "ml-1"} %>
-        <%= link_to 'プライバシポリシー', privacy_path, {class: "ml-1"} %>
+        <%= link_to 'お問合せ', new_contact_path, class: "ml-1 text-white-50" %>
+        <%= link_to '使い方について', about_path, class: "ml-1 text-white-50" %>
+        <%= link_to 'プライバシポリシー', privacy_path, class: "ml-1 text-white-50" %>
+        <%= link_to '利用規約', protocol_path, class: "ml-1 text-white-50" %>
       </div>
+  </div>
+  <!-- Copyright -->
+   <div class="footer-copyright text-center text-white-50 py-3">
+     © 2019 Copyright:JW
+  </div>
     </div>
-  </div>
-  <!-- Copyright -->
-   <div class="footer-copyright text-center text-black-50 py-3">© 2019 Copyright:
-   <a class="dark-grey-text" href="#"> JW</a>
-  </div>
-  <!-- Copyright -->
 </footer>

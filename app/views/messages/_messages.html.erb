@@ -43,7 +43,7 @@
           <%= link_to message.user.name, user_path(message.user) %> <span class="text-muted">posted at <%= message.created_at %></span>
             <p class="mb-0"><%= message.content %></p>
               <% if current_user == message.user %>
-                <%= link_to "Delete", message, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+                <%= link_to "削除", message, method: :delete, data: { confirm: "削除しますか？" }, class: 'btn btn-danger btn-sm' %>
               <% end %>
         </div>
        </div>

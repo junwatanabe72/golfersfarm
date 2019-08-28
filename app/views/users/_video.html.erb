@@ -9,10 +9,8 @@
     allowfullscreen: true
 ) %>
 
-<p class= mb-2>my youtubeチャンネル</p>
-<%= raw Rinku.auto_link(h(user.channel)) %>
 
-<p class="mt-2">ゴルフスイング</p>
+<p class="mt-2">youtubeチャンネル<%= raw Rinku.auto_link(h(user.channel)) %></p>
 <%= content_tag(:div, iframe, class: 'youtube-container') %>
   
   

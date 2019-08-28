@@ -13,17 +13,9 @@
  *= require_tree .
  *= require_self
  */
- 
-　footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: red;
-  color:red;
-    
-}
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
 
 　bimage{
 height:1500;

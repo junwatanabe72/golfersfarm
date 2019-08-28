@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   get 'about', to: "toppages#about"
   get 'privacy', to: "toppages#privacy"
-  
+  get 'protocol', to: "toppages#protocol"
   
   get 'signup', to: 'users#new'
   

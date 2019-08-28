@@ -1,3 +1,5 @@
+<div class=" mt-4 container">
+  
 <%= form_with(model: @tournament, local: true) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
  <table class="table table-condensed table-striped text-center m-0">
@@ -66,12 +68,12 @@
           <td><%= link_to tournament.rank, tournament.url%></td>
           <td>
             <% if current_user == tournament.user %>
-                <%= link_to "削除", tournament, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+                <%= link_to "削除", tournament, method: :delete, data: { confirm: "削除しますか？" }, class: 'btn btn-danger btn-sm' %>
             <% end %>
           </td>
         </tr>
        <% end %>
        </tbody>
     </table>
-  
+</div>
 

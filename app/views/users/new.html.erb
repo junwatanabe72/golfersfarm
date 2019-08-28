@@ -1,9 +1,9 @@
 <div class="text-center">
-  <h1>Sign up</h1>
+  <h1 class="pt-4 pb-3">Sign up</h1>
 </div>
-
+<div class="container">
 <div class="row">
-  <div class="col-sm-6 offset-sm-3">
+  <div class="pb-4 col-sm-6 offset-sm-3">
     
 
     <%= form_with(model: @user, local: true) do |f| %>
@@ -80,4 +80,5 @@
       <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
+</div>
 </div>
