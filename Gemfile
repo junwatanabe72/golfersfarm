@@ -64,7 +64,7 @@ end
 
 
 gem "kaminari"
-gem "carrierwave"
+gem "carrierwave","~> 1.3.1"
 gem 'rmagick'
 gem "ransack"
 gem "dotenv-rails"

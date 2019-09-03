@@ -12,7 +12,7 @@ class User < ApplicationRecord
    
    #バリテーション
     
-    validates :password, length: {minimum: 8 } 
+    validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
     
     validates :name, presence: true, length: { maximum: 50 }
     validates :email, presence: true, length: { maximum: 255 },
@@ -43,6 +43,7 @@ class User < ApplicationRecord
     has_many :tournaments ,dependent: :destroy
 
     has_secure_password
+    
     mount_uploader :image, ImageUploader
     mount_uploader :gear, ImageUploader
     
