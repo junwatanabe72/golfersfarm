@@ -3,11 +3,10 @@
     '', # empty body
     width: 560,
     height: 315,
-    src: "https://www.youtube.com/embed/#{user.video}?rel=0",
-    
+    src:"https://www.youtube.com/embed/#{@user.video}?rel=0",
     frameborder: 0,
     allowfullscreen: true
-) %>
+  ) %>
 
 <p class="mt-2">youtubeチャンネル<%= raw Rinku.auto_link(h(user.channel)) %></p>
 <%= content_tag(:div, iframe, class: 'youtube-container') %>

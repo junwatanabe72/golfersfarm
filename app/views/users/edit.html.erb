@@ -1,22 +1,10 @@
-<style>
-             table {
-                font-size:13px;
-            }
-            
-            h3{
-              margin:5px;
-              color :red;
-            }
-            
-</style>
-
 <div class=" mt-4 pb-5 container">
 <div class="row">
 <div class="container">
 <%= form_with(model: @user, local: true) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
-  <h3>プロフィール編集</h3>
-<table class="table table-striped">
+  <h3 id="ehead">プロフィール編集</h3>
+<table class="table table-striped" id="etable">
   <tbody>
     <tr>
       <th>項目</th>
@@ -140,9 +128,9 @@
   </tbody>
 </table>
 
-<h3>youtube関連編集</h3>
+<h3 id="ehead">youtube関連編集</h3>
 
-<table class="table">
+<table class="table" id="etable">
   <tbody>
     <tr>
       <th>Channel/youtubeチャンネル<br><%= raw Rinku.auto_link(h(@user.channel)) %></th>
@@ -159,15 +147,14 @@
     </tr>
   </tbody>
 </table>
-<table class="table">
+<table class="table" id="etable">
   <tbody>
   <tr>
       <th>
         <div class="form-group">
         <%= f.label :video, 'Video/スウィング動画' %>
        <div data-toggle="tooltip" 
-       title=":最大10秒程度の自身のスウィングを撮影したyoutube動画URLを張付ける。
-       ※youtube動画画面の右下[共有]→[埋込]にあるURL[https://www.youtube.com/embed/○○○○○○○]における[○○○○○○]を入力">
+       title="最大10秒程度の自身のスウィングを撮影したyoutube動画URLを張付ける。">
         <%= f.text_field :video, class: 'form-control' %>
         </div>
       </div>
@@ -188,9 +175,9 @@
   </tbody>
 </table>
  
- <h3>クラブセッティング編集</h3>
+ <h3 id="ehead">クラブセッティング編集</h3>
  
- <table class="table table-striped">
+ <table class="table table-striped" id="etable">
   <tbody>
     <tr>
       <th>クラブ</th>
@@ -265,9 +252,9 @@
 </table>
  
  
- <h3>フォト編集</h3>
+ <h3  id="ehead">フォト編集</h3>
  
-<table class="table">
+<table class="table" id="etable">
   <tbody>
     <tr>
       <th>Imagephoto/プロフィール写真
@@ -302,9 +289,9 @@
       
  
  
- <h3>パスワードその他編集</h3>
+ <h3 id="ehead">パスワードその他編集</h3>
  
-<table class="table">
+<table class="table" id="etable">
   <tbody>
     <tr>
       <th>Password/パスワード</th>
