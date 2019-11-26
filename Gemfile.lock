@@ -86,6 +86,7 @@ GEM
     crass (1.0.4)
     data-confirm-modal (1.6.2)
       railties (>= 3.0)
+    diff-lcs (1.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.5)
@@ -94,6 +95,11 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     execjs (2.7.0)
+    factory_bot (4.11.1)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
+      railties (>= 3.0.0)
     ffi (1.11.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -203,6 +209,23 @@ GEM
       netrc (~> 0.8)
     rinku (2.0.6)
     rmagick (4.0.0)
+    rspec-core (3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-expectations (3.9.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-rails (3.9.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.4)
     sass (3.7.4)
@@ -268,6 +291,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   data-confirm-modal
   dotenv-rails
+  factory_bot_rails
   jbuilder (~> 2.5)
   jquery-turbolinks
   kaminari
@@ -281,6 +305,7 @@ DEPENDENCIES
   ransack
   rinku
   rmagick
+  rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

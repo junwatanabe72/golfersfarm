@@ -8,12 +8,11 @@ class User < ApplicationRecord
     
     #要素
     
-    attr_accessor :remember_token,  :activation_token
+    attr_accessor :remember_token,  :activation_token, :reset_token
    
    #バリテーション
     
     validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
-    
     validates :name, presence: true, length: { maximum: 50 }
     validates :email, presence: true, length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
@@ -99,9 +98,7 @@ class User < ApplicationRecord
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
   end
-  
-  
-  
+    
   
   def authenticated?(attribute, token)
     digest = self.send("#{attribute}_digest")
@@ -109,6 +106,22 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password?(token)
   end
   
+  #パスワード再設定
   
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest,  User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  # パスワード再設定のメールを送信する
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+  
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+    
   
 end
